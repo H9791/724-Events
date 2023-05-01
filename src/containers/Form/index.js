@@ -16,6 +16,8 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
+        /* display message after the delay of the mock api */
+        onSuccess(true);
       } catch (err) {
         setSending(false);
         onError(err);

@@ -82,6 +82,7 @@ const EventList = () => {
                     <div id="events" className="ListContainer">
                         {filteredEvents.map((event) => (
                             <Modal key={event.id} Content={<ModalEvent event={event} />}>
+                                
                                 {({ setIsOpened }) => (
                                     <EventCard
                                         onClick={() => setIsOpened(true)}
@@ -91,6 +92,7 @@ const EventList = () => {
                                         label={event.type}
                                     />
                                 )}
+                                
                             </Modal>
                         ))}
                     </div>
