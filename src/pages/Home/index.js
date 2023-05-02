@@ -13,7 +13,11 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-    const { last } = useData()
+    /* "last" doesn't exist, the name of the prop from the datacontext is "data" */
+    const { data } = useData()
+    /* once you get access to all the events, get the last one */
+    const last = data.events[data.events.length-1];
+    
     return <>
         <header>
             <Menu />
@@ -104,24 +108,12 @@ const Page = () => {
                         </div>
                     }
                 >
-
-                    {({ setIsOpened }) => {
-                        console.log("setIsOpened: ");
-                        console.log(setIsOpened);
-                        return <Form
+                    {({ setIsOpened }) => (
+                        <Form
                             onSuccess={() => setIsOpened(true)}
                             onError={() => null}
                         />
-                    }}
-
-
-                    {/*   {({ setIsOpened }) => (
-            
-            <Form
-              onSuccess={() => setIsOpened(true)}
-              onError={() => null}
-            />
-          )} */}
+                    )}
                 </Modal>
             </div>
         </main>
