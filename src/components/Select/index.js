@@ -19,8 +19,6 @@ const Select = ({
     /* here need to pass in the new value newValue otherwise doesn't work */
     onChange(newValue);
     setValue(newValue);
-    console.log("newvalue: ");
-    console.log(newValue);
     setCollapsed(newValue);
   };
   return (

@@ -13,13 +13,6 @@ const EventList = () => {
     const { data, error } = useData();
     const [type, setType] = useState();
     const [currentPage, setCurrentPage] = useState(1);
-    console.log("before filteredEvents")
-    //   : data?.events.filter(event => event.type===type) 
-
-/*     data?.events.filter((evt) => {
-        if (evt.type==="conférence") return true;
-        return false;
-    }); */
 
     const filteredEvents = (
         (!type
@@ -41,25 +34,7 @@ const EventList = () => {
         return false;
     });
 
-/*       const filteredEvents = (
-        (!type
-          ? data?.events
-          : data?.events           
-          ) || []
-      ).filter((event, index) => {
-        if (
-          (currentPage - 1) * PER_PAGE <= index &&
-          PER_PAGE * currentPage > index
-        ) {
-          return true;
-        }
-        return false;
-      }); */
-
-
     const changeType = (evtType) => {
-        console.log("evtType: ");
-        console.log(evtType);
         setCurrentPage(1);
         setType(evtType);
     };

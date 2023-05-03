@@ -12,7 +12,7 @@ const Slider = () => {
     );
     const nextCard = () => {
         setTimeout(
-            () => setIndex(index+1 < (byDateDesc.length) ? index + 1 : 0),
+            () => setIndex(index+1 < (byDateDesc?.length) ? index + 1 : 0),
             5000
         );
     };
@@ -40,9 +40,10 @@ const Slider = () => {
                     </div>
                     <div className="SlideCard__paginationContainer">
                         <div className="SlideCard__pagination">
-                        {/* {console.log(event)} */}
                             {byDateDesc.map((_, radioIdx) => (
                                  <input
+                                    /* key={`${event.id}`} event.id n'existe pas dans "focus" */
+                                    /* key={`${event.description}`} */
                                     key={Math.random()}
                                     type="radio"
                                     name="radio-button"
