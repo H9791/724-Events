@@ -9,8 +9,6 @@ import "./style.css";
 
 const PER_PAGE = 9;
 
-// function fnc () {console.log(data?.events);}
-
 const EventList = () => {
     const { data, error } = useData();
     const [type, setType] = useState();

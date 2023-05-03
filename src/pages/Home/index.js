@@ -1,3 +1,5 @@
+
+
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
@@ -12,12 +14,17 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+
+
 const Page = () => {
     /* "last" doesn't exist, the name of the prop from the datacontext is "data" */
-    const { data } = useData()
-    /* once you get access to all the events, get the last one */
-    const last = data.events[data.events.length-1];
-    
+    const { data } = useData();
+
+    /* once you get access to all the events, get the most recent one */
+    const last = data?.events.sort((evtA, evtB) =>
+        new Date(evtA.date) < new Date(evtB.date) ? 1 : -1
+    )?.[0];
+
     return <>
         <header>
             <Menu />
