@@ -27,15 +27,12 @@ describe("When Form is created", () => {
 
 });
 
-
 describe("When a page is created", () => {
-    
     it("a list of events is displayed", async () => {
     // create page
     render(<Home />);
-     /* check if a list of events is displayed - find at least one Eventcard in the section 
-     nos realisations */
-    await screen.findByText("Contactez-nous");
+     /* check if a list of events is displayed */
+     await screen.findByTestId("eventsId");
   })
   it("a list a people is displayed", async () => {
     render(<Home />);
@@ -47,7 +44,9 @@ describe("When a page is created", () => {
     // footer contains the text "Notre derniére prestation" 
     await screen.findByText("Notre derniére prestation");
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    await screen.findByTestId("lastEventId");
+    
   })
 });
